@@ -6,35 +6,38 @@ package com.company;
  */
 public class Vendor
 {
-    // Fields:
-  ...
+  int p;
+  int s;
+  int d;
+  int c;
 
           /**
            * Constructs a Vendor
            * @param price the price of a single item in cents (int)
            * @param stock number of items to place in stock (int)
            */
-          ... Vendor ...
+          public Vendor(int price, int stock)
     {
-    ...
+      p = price;
+      s = stock;
     }
 
     /**
      * Sets the quantity of items in stock.
      * @param qty number of items to place in stock (int)
      */
-  ... setStock ...
+  public void setStock(int qty)
     {
-    ...
+    s= qty;
     }
 
     /**
      * Returns the number of items currently in stock.
      * @return number of items currently in stock (int)
      */
-  ... getStock ...
+  public int getStock()
     {
-    ...
+    return s;
     }
 
     /**
@@ -42,18 +45,18 @@ public class Vendor
      * deposited amount.
      * @param number of cents to add to the deposit (int)
      */
-  ... addMoney ...
+  public void addMoney(int number)
     {
-    ...
+    d+=number;
     }
 
     /**
      * Returns the currently deposited amount (in cents).
      * @return number of cents in the current deposit (int)
      */
-  ... getDeposit ...
+  public int getDeposit()
     {
-    ...
+    return d;
     }
 
     /**
@@ -65,9 +68,17 @@ public class Vendor
      * change) and returns false.
      * @return true for a successful sale, false otherwise (boolean)
      */
-  ... makeSale ...
+  public boolean makeSale()
     {
-    ...
+    if (s>0 && d>=p) {
+      s--;
+      c = d-p;
+      return true;
+    }
+    else {
+      c = d;
+      return false;
+    }
     }
 
     /**
@@ -75,8 +86,9 @@ public class Vendor
      * the last sale or refund).
      * @return number of cents in the current change (int)
      */
-  ... getChange ...
+  public int getChange()
     {
-    ...
+    return c;
+    
     }
 }
