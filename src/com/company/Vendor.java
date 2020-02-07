@@ -6,10 +6,11 @@ package com.company;
  */
 public class Vendor
 {
-  int p;
-  int s;
-  int d;
-  int c;
+  private int p;
+  private int s;
+  private int d;
+  private int c;
+  private static double sales = 0;
 
           /**
            * Constructs a Vendor
@@ -73,6 +74,7 @@ public class Vendor
     if (s>0 && d>=p) {
       s--;
       c = d-p;
+      sales+=(p*0.01);
       return true;
     }
     else {
@@ -88,7 +90,15 @@ public class Vendor
      */
   public int getChange()
     {
-    return c;
+    int temp = c;
+    c = 0;
+    d = 0;
+    return temp;
     
+    }
+    public static double getTotalSales() {
+    double tempSales = sales;
+    sales = 0.0;
+    return tempSales;
     }
 }
